@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:pruebatec/features/cat/domain/entities/cat.dart';
-import 'package:pruebatec/features/cat/presentation/provider/detail_provider.dart';
 
-class CardCat extends StatelessWidget {
+class CatCardMolecule extends StatelessWidget {
+  final void Function()? onTap;
   final Cat cat;
 
-  const CardCat({super.key, required this.cat});
+  const CatCardMolecule({
+    super.key,
+    this.onTap,
+    required this.cat,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final detailProvider = Provider.of<DetailProvider>(context);
     return InkWell(
-      onTap: () {
-        detailProvider.cat = cat;
-        Navigator.of(context).pushNamed('cat.detail');
-      },
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Container(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SearchCat extends StatelessWidget {
+class SearchCatOrganism extends StatelessWidget {
   final void Function()? onPressed;
   final void Function(String)? onChanged;
   final String value;
 
-  const SearchCat({
+  const SearchCatOrganism({
     super.key,
     this.onPressed,
     this.onChanged,

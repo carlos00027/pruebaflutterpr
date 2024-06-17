@@ -1,4 +1,5 @@
 import 'package:fpdart/fpdart.dart';
+import 'package:pruebatec/core/error/exception_custom.dart';
 import 'package:pruebatec/core/error/failure.dart';
 import 'package:pruebatec/features/cat/data/datasources/cat_remote_data_source.dart';
 import 'package:pruebatec/features/cat/domain/entities/cat.dart';
@@ -11,7 +12,11 @@ class CatRepositoryImp implements CatRepository {
 
   @override
   Future<Either<Failure, List<Cat>>> findAll() async {
-    final cats = await catRemoteDataSource.findAll();
-    return right(cats);
+    try {
+      final cats = await catRemoteDataSource.findAll();
+      return right(cats);
+    } on ExceptionCustom catch (e) {
+      return left(Failure(e.message));
+    }
   }
 }

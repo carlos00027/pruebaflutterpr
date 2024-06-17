@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:pruebatec/features/cat/domain/entities/cat.dart';
+import 'package:pruebatec/features/cat/presentation/components/organisms/cat_detail_list_organism.dart';
 import 'package:pruebatec/features/cat/presentation/provider/detail_provider.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -29,64 +28,7 @@ class DetailScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Expanded(
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  Text(cat.description),
-                  Table(
-                    children: [
-                      TableRow(
-                        children: [
-                          const Text('Nombre del país'),
-                          Text(cat.origin),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const Text('Inteligencia'),
-                          Text(cat.intelligence.toString()),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const Text('Adaptabilidad'),
-                          Text(cat.adaptability.toString()),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const Text('Nivel de afecto'),
-                          Text(cat.affectionLevel.toString()),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const Text('Amigable con los niños'),
-                          Text(cat.childFriendly.toString()),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const Text('Nivel de energia'),
-                          Text(cat.energyLevel.toString()),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const Text('aseado'),
-                          Text(cat.grooming.toString()),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const Text('aseado'),
-                          Text(cat.grooming.toString()),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              child: CatDetailListOrganism(cat: cat),
             )
           ],
         ),

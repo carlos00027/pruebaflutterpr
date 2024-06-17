@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:pruebatec/core/usecase/usecase.dart';
 import 'package:pruebatec/features/cat/domain/entities/cat.dart';
 import 'package:pruebatec/features/cat/domain/usecases/find_cats.dart';
 
@@ -28,12 +29,17 @@ class LandingProvider extends ChangeNotifier {
 
   Future<void> fetchCats() async {
     isLoading = true;
-    final results = await findCats.execute();
-    if (search != '') {
-      cats = results.where((cat) => cat.name.toLowerCase().contains(search.toLowerCase())).toList();
-    }else{
-      cats = results;
-    }
+    final results = await findCats.execute(NoParams());
+    results.fold((l) {
+      debugPrint('error al hacer fetch ${l.message}');
+      isLoading = false;
+    }, (r) {
+      if (search != '') {
+        cats = r.where((cat) => cat.name.toLowerCase().contains(search.toLowerCase())).toList();
+      } else {
+        cats = r;
+      }
+    });
 
     isLoading = false;
   }

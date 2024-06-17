@@ -1,7 +1,8 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:pruebatec/core/error/failure.dart';
 
-abstract interface class UseCase<SuccessType,Params>{
-  Future<SuccessType> execute([Params params]);
+abstract interface class UseCase<SuccessType, Params> {
+  Future<Either<Failure, SuccessType>> execute(Params params);
 }
 
+class NoParams {}

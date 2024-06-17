@@ -2,18 +2,16 @@ import 'package:fpdart/fpdart.dart';
 import 'package:pruebatec/core/error/failure.dart';
 import 'package:pruebatec/core/usecase/usecase.dart';
 import 'package:pruebatec/features/cat/domain/entities/cat.dart';
-import 'package:pruebatec/features/cat/domain/services/cat_service.dart';
+import 'package:pruebatec/features/cat/domain/repositories/cat_repository.dart';
 
-class FindCats implements UseCase {
-  final CatService catService;
+class FindCats implements UseCase<List<Cat>, NoParams> {
+  final CatRepository catRepository;
 
-  FindCats(this.catService);
+  FindCats(this.catRepository);
 
   @override
-  Future<List<Cat>> execute([void params]) async {
-    final result = await catService.findAll();
-    return result;
+  Future<Either<Failure, List<Cat>>> execute(NoParams params) async {
+    final res =  await catRepository.findAll();
+    return res;
   }
-
-
 }
