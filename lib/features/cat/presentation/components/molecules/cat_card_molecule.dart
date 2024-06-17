@@ -32,7 +32,7 @@ class CatCardMolecule extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(cat.name),
-                  Text('mas ${cat.id}'),
+                  const Text('mas'),
                 ],
               ),
               FadeInImage(
