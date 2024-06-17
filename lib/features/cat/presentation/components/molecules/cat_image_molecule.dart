@@ -19,6 +19,9 @@ class CatImageMolecule extends StatelessWidget {
         url,
         fit: BoxFit.contain,
         height: 390,
+        errorBuilder: (context,object,_){
+          return Image.asset('assets/img/placeholder.png');
+        },
       ),
     );
   }
