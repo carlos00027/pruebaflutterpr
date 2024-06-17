@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:pruebatec/core/error/exception_custom.dart';
 import 'package:pruebatec/core/error/failure.dart';
 import 'package:pruebatec/core/usecase/usecase.dart';
 import 'package:pruebatec/features/cat/domain/entities/cat.dart';
