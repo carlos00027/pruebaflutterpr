@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pruebatec/features/cat/domain/entities/cat.dart';
+import 'package:pruebatec/features/cat/presentation/components/molecules/cat_image_molecule.dart';
 import 'package:pruebatec/features/cat/presentation/components/organisms/cat_detail_list_organism.dart';
 import 'package:pruebatec/features/cat/presentation/provider/detail_provider.dart';
 
@@ -19,13 +20,7 @@ class DetailScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: Column(
           children: [
-            SizedBox(
-              child: Image.network(
-                cat.imageUrl,
-                fit: BoxFit.contain,
-                height: 390,
-              ),
-            ),
+            CatImageMolecule(url: cat.imageUrl),
             const SizedBox(height: 10),
             Expanded(
               child: CatDetailListOrganism(cat: cat),

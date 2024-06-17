@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:pruebatec/core/router/app_router.dart';
 import 'package:pruebatec/core/theme/app_theme.dart';
 import 'package:pruebatec/features/cat/presentation/provider/detail_provider.dart';
-import 'package:pruebatec/features/cat/presentation/provider/landing_provider.dart';
 import 'package:pruebatec/init_dependencies.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
